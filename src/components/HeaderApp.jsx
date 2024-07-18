@@ -2,12 +2,18 @@ import { CartList } from "./CartList";
 
 export const HeaderApp = ({
   cart,
-  totalPrice,
   handdleAddCard,
   handdleRemoveCard,
   handdleDecreaseCard,
   handdleResetCart,
 }) => {
+  const totalPrice = () => {
+    return cart.reduce(
+      (total, guitar) => total + guitar.price * guitar.quantity,
+      0
+    );
+  };
+
   return (
     <header className="py-5 header">
       <div className="container-xl">
